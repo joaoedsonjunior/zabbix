@@ -87,7 +87,7 @@ systemctl start zabbix-proxy
 8. LIMPE OS COOKIES E O CACHE DO NAVEGADOR DA WEB
 Após a atualização, pode ser necessário limpar os cookies e o cache do navegador da web para que a interface da web do Zabbix funcione corretamente.
 
-#Problemas Recorrentes:
+## Problemas Recorrentes:
 
 Quando o Banco de dados é postgres e der o erro: 
 ERROR:  canceling statement due to statement timeout
