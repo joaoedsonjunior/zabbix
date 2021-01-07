@@ -18,7 +18,7 @@ Este é um passo muito importante. Certifique-se de ter um backup do seu banco d
 ```sh
 set statement_timeout = 0;
 
-double.sql
+*double.sql*
 ALTER TABLE ONLY trends
 	ALTER COLUMN value_min TYPE DOUBLE PRECISION,
 	ALTER COLUMN value_min SET DEFAULT '0.0000',
