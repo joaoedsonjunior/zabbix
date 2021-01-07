@@ -43,8 +43,8 @@ cp /etc/httpd/conf.d/zabbix.conf /opt/zabbix-backup/
 
 ## Arquivos PHP e binários Zabbix:
 ```sh
-cp -R / usr / share / zabbix / / opt / zabbix-backup /
-cp -R / usr / share / doc / zabbix- * / opt / zabbix-backup /
+cp -R /usr/share/zabbix/ /opt/zabbix-backup/
+cp -R /usr/share/doc/zabbix-* /opt/zabbix-backup/
 ```
 
 4 ATUALIZAR PACOTE DE CONFIGURAÇÃO DO REPOSITÓRIO
@@ -64,24 +64,25 @@ rpm -Uvh https://repo.zabbix.com/zabbix/5.0/rhel/7/x86_64/zabbix-release-5.0-1.e
 yum upgrade zabbix-*
 ```
 
-Para atualizar o front-end da web com Apache no RHEL 8 corretamente, execute também:
-
-# yum install zabbix-apache-conf 
+## Para atualizar o front-end da web com Apache no RHEL 8 corretamente, execute também:
+```sh
+yum install zabbix-apache-conf
+```
 e faça as alterações necessárias neste arquivo.
 
 Para atualizar o front - end da web no RHEL 7, siga as instruções nesta página (etapas extras são necessárias para instalar o PHP 7.2 ou mais recente).
 Em particular, certifique-se de instalar o zabbix-apache-conf-sclpacote se você usar o servidor web Apache.
 
- # yum install zabbix-apache-conf-scl
+yum install zabbix-apache-conf-scl
 6 REVISE OS PARÂMETROS DE CONFIGURAÇÃO DO COMPONENTE
 Consulte as notas de atualização para obter detalhes sobre as alterações obrigatórias .
 
 7 INICIE OS PROCESSOS DO ZABBIX
 Inicie os componentes atualizados do Zabbix.
-
-# systemctl start zabbix-server
-# systemctl start zabbix-proxy
-
+```sh
+systemctl start zabbix-server
+systemctl start zabbix-proxy
+```
 8 LIMPE OS COOKIES E O CACHE DO NAVEGADOR DA WEB
 Após a atualização, pode ser necessário limpar os cookies e o cache do navegador da web para que a interface da web do Zabbix funcione corretamente.
 
