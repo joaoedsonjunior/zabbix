@@ -34,33 +34,35 @@ ALTER TABLE ONLY history
 3 FAÇA BACKUP DE ARQUIVOS DE CONFIGURAÇÃO, ARQUIVOS PHP E BINÁRIOS ZABBIX
 Faça uma cópia de backup dos binários do Zabbix, arquivos de configuração e diretório de arquivos PHP.
 
-Arquivos de configuração:
+## Arquivos de configuração:
+```sh
 mkdir /opt/zabbix-backup/
-cp /etc/zabbix/zabbix_server.conf / opt / zabbix-backup /
-cp /etc/httpd/conf.d/zabbix.conf / opt / zabbix-backup /
+cp /etc/zabbix/zabbix_server.conf /opt/zabbix-backup/
+cp /etc/httpd/conf.d/zabbix.conf /opt/zabbix-backup/
+```
 
 ## Arquivos PHP e binários Zabbix:
-'''
+```sh
 cp -R / usr / share / zabbix / / opt / zabbix-backup /
 cp -R / usr / share / doc / zabbix- * / opt / zabbix-backup /
-'''
+```
 
 4 ATUALIZAR PACOTE DE CONFIGURAÇÃO DO REPOSITÓRIO
 Para prosseguir com a atualização, seu pacote de repositório atual deve ser atualizado.
 
-
+```sh
 RHEL / CentOS 8
-# rpm -Uvh https://repo.zabbix.com/zabbix/5.0/rhel/8/x86_64/zabbix-release-5.0-1.el8.noarch.rpm
+rpm -Uvh https://repo.zabbix.com/zabbix/5.0/rhel/8/x86_64/zabbix-release-5.0-1.el8.noarch.rpm
 
 RHEL / CentOS 7
-# rpm -Uvh https://repo.zabbix.com/zabbix/5.0/rhel/7/x86_64/zabbix-release-5.0-1.el7.noarch.rpm
-
+rpm -Uvh https://repo.zabbix.com/zabbix/5.0/rhel/7/x86_64/zabbix-release-5.0-1.el7.noarch.rpm
+```
 
 5 ATUALIZAR COMPONENTES DO ZABBIX
 
-Para atualizar os componentes do Zabbix, você pode executar algo como:
-yum upgrade zabbix-server-mysql zabbix-web-mysql zabbix-agent
-Se estiver usando PostgreSQL, substitua mysqlpor pgsqlno comando. Se estiver atualizando o proxy, substitua serverpor proxyno comando. Se estiver fazendo upgrade do agente 2, substitua zabbix-agentpor zabbix-agent2no comando.
+```sh
+yum upgrade zabbix-*
+```
 
 Para atualizar o front-end da web com Apache no RHEL 8 corretamente, execute também:
 
