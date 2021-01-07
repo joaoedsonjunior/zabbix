@@ -36,9 +36,11 @@ mkdir /opt/zabbix-backup/
 cp /etc/zabbix/zabbix_server.conf / opt / zabbix-backup /
 cp /etc/httpd/conf.d/zabbix.conf / opt / zabbix-backup /
 
-Arquivos PHP e binários Zabbix:
+## Arquivos PHP e binários Zabbix:
+'''
 cp -R / usr / share / zabbix / / opt / zabbix-backup /
 cp -R / usr / share / doc / zabbix- * / opt / zabbix-backup /
+'''
 
 4 ATUALIZAR PACOTE DE CONFIGURAÇÃO DO REPOSITÓRIO
 Para prosseguir com a atualização, seu pacote de repositório atual deve ser atualizado.
