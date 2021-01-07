@@ -31,7 +31,7 @@ ALTER TABLE ONLY history
 	ALTER COLUMN value SET DEFAULT '0.0000';
 ```
 
-3 FAÇA BACKUP DE ARQUIVOS DE CONFIGURAÇÃO, ARQUIVOS PHP E BINÁRIOS ZABBIX
+3. FAÇA BACKUP DE ARQUIVOS DE CONFIGURAÇÃO, ARQUIVOS PHP E BINÁRIOS ZABBIX
 Faça uma cópia de backup dos binários do Zabbix, arquivos de configuração e diretório de arquivos PHP.
 
 ## Arquivos de configuração:
@@ -47,7 +47,7 @@ cp -R /usr/share/zabbix/ /opt/zabbix-backup/
 cp -R /usr/share/doc/zabbix-* /opt/zabbix-backup/
 ```
 
-4 ATUALIZAR PACOTE DE CONFIGURAÇÃO DO REPOSITÓRIO
+4. ATUALIZAR PACOTE DE CONFIGURAÇÃO DO REPOSITÓRIO
 Para prosseguir com a atualização, seu pacote de repositório atual deve ser atualizado.
 
 ```sh
@@ -58,7 +58,7 @@ RHEL / CentOS 7
 rpm -Uvh https://repo.zabbix.com/zabbix/5.0/rhel/7/x86_64/zabbix-release-5.0-1.el7.noarch.rpm
 ```
 
-5 ATUALIZAR COMPONENTES DO ZABBIX
+5. ATUALIZAR COMPONENTES DO ZABBIX
 
 ```sh
 yum upgrade zabbix-*
@@ -72,21 +72,23 @@ e faça as alterações necessárias neste arquivo.
 
 Para atualizar o front - end da web no RHEL 7, siga as instruções nesta página (etapas extras são necessárias para instalar o PHP 7.2 ou mais recente).
 Em particular, certifique-se de instalar o zabbix-apache-conf-sclpacote se você usar o servidor web Apache.
-
+```sh
 yum install zabbix-apache-conf-scl
-6 REVISE OS PARÂMETROS DE CONFIGURAÇÃO DO COMPONENTE
+```
+6. REVISE OS PARÂMETROS DE CONFIGURAÇÃO DO COMPONENTE
 Consulte as notas de atualização para obter detalhes sobre as alterações obrigatórias .
 
-7 INICIE OS PROCESSOS DO ZABBIX
+7. INICIE OS PROCESSOS DO ZABBIX
 Inicie os componentes atualizados do Zabbix.
 ```sh
 systemctl start zabbix-server
 systemctl start zabbix-proxy
 ```
-8 LIMPE OS COOKIES E O CACHE DO NAVEGADOR DA WEB
+8. LIMPE OS COOKIES E O CACHE DO NAVEGADOR DA WEB
 Após a atualização, pode ser necessário limpar os cookies e o cache do navegador da web para que a interface da web do Zabbix funcione corretamente.
 
-Problemas Recorrentes:
+#Problemas Recorrentes:
+
 Quando o Banco de dados é postgres e der o erro: 
 ERROR:  canceling statement due to statement timeout
 
