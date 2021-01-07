@@ -5,14 +5,17 @@
 1. PARE OS PROCESSOS DO ZABBIX
 Pare o servidor Zabbix para certificar-se de que nenhum novo dado seja inserido no banco de dados.
 
+```sh
 systemctl stop zabbix-server
 Se estiver atualizando o proxy, pare o proxy também.
+```
 
 2. FAÇA BACKUP DO BANCO DE DADOS ZABBIX EXISTENTE E EXECUTE O DOUBLE.SQL
 Este é um passo muito importante. Certifique-se de ter um backup do seu banco de dados. Isso ajudará se o procedimento de atualização falhar (falta de espaço em disco, desligamento, qualquer problema inesperado).
 
 ## Executar logado no postgres
-´´´
+
+```sh
 set statement_timeout = 0;
 
 double.sql
@@ -26,7 +29,7 @@ ALTER TABLE ONLY trends
 ALTER TABLE ONLY history
 	ALTER COLUMN value TYPE DOUBLE PRECISION,
 	ALTER COLUMN value SET DEFAULT '0.0000';
-´´´
+```
 
 3 FAÇA BACKUP DE ARQUIVOS DE CONFIGURAÇÃO, ARQUIVOS PHP E BINÁRIOS ZABBIX
 Faça uma cópia de backup dos binários do Zabbix, arquivos de configuração e diretório de arquivos PHP.
