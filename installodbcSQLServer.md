@@ -1,8 +1,4 @@
 ## Debian
-
-```sh
-Bash
-```
 ```sh
 sudo su
 curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
@@ -34,9 +30,6 @@ sudo apt-get install libgssapi-krb5-2
 ```
 
 ## Red Hat Enterprise Server and Oracle Linux
-```sh
-Bash
-```
 ```sh
 sudo su
 
