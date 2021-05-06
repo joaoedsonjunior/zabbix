@@ -27,7 +27,7 @@ sudo apt update
 sudo apt -y install postgresql-12 postgresql-client-12
 ```
 Vai aparecer uma imagem conforme abaixo
-IMG
+![alt text](/img/postgres.png)
 
 Verifique o status do postgres
 ```sh
